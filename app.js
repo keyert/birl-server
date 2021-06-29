@@ -5,7 +5,7 @@ const birl    = require('./code_exec.js');
 const verif   = require('./code_verification.js');
 
 var corsOptions = {
-    origin: 'https://birl-language.github.io'
+    origin: '*'
 };
 
 // Permitindo CORS
@@ -32,7 +32,7 @@ app.post('/compile', cors (corsOptions), function (req, res) {
         var json = JSON.parse(body);
         if (json.code == null || verif(json.code)) {
             res.setHeader('Content-Type', 'application/json');
-            res.end(JSON.stringify({    error: "ERRO DE COMPILAÇÃO, CUMPADI!!\n",
+            res.end(JSON.stringify({    error: "ERRO DE COMPILAÇÃO!!\n",
                                         stdout: null,
                                     }));
         }

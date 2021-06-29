@@ -1,7 +1,7 @@
 /**********************************************************************
 * 
-* code_exec.js: recebe um código em BIRL, uma entrada padrão e um valor
-* de resposta, cria o arquivo .c equivalente ao código BIRL, compila e
+* code_exec.js: recebe um código em G, uma entrada padrão e um valor
+* de resposta, cria o arquivo .c equivalente ao código G, compila e
 * o executa.
 *
 ***********************************************************************/
@@ -18,7 +18,7 @@ function randomValueHex (len) {
 module.exports = function (bCode, stdin, res) {
     const fs   = require('fs');
     const comp = require('./compiler.js');
-    const code = require('./birlToC.js')(bCode);
+    const code = require('./gToC.js')(bCode);
 
     var rName = randomValueHex(15).toString();
   
@@ -27,7 +27,7 @@ module.exports = function (bCode, stdin, res) {
         // Se ocorrer erro, retorna a resposta
         if (error) {
             res.setHeader('Content-Type', 'application/json');
-            res.end(JSON.stringify({    error: "ERRO INTERNO PAI!\n",
+            res.end(JSON.stringify({    error: "ERRO INTERNO\n",
                                         stdout: null,
                                     }));
         }
@@ -39,7 +39,7 @@ module.exports = function (bCode, stdin, res) {
             // se ocorrer erro, retorna JSON 
             if (err) {
                 res.setHeader('Content-Type', 'application/json');
-                res.end(JSON.stringify({    error: "ERRO INTERNO PAI!\n",
+                res.end(JSON.stringify({    error: "ERRO INTERNO\n",
                                             stdout: null,
                                     }));
                 return;

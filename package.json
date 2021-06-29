@@ -1,6 +1,6 @@
 {
-  "name": "birl-compiler",
-  "description": "BIRL Compiler",
+  "name": "g-code",
+  "description": "G Compiler",
   "version": "0.0.1",
   "main": "app.js",
   "scripts": {

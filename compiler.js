@@ -1,7 +1,7 @@
 /**********************************************************************
 * 
 * compiler.js: compila o arquivo file e executa-o (se o retorno da execução
-* for 0, retorna a stdout do arquivo, caso contrário, exibe erro de compi
+* for 0, retorna a stdout(saida) do arquivo, caso contrário, exibe erro de compi
 * lação).
 *
 ***********************************************************************/
@@ -16,7 +16,7 @@ module.exports = function (file, res) {
 
         if (error) {
             console.log ("ERROR: " + error);
-            res.end(JSON.stringify({    error: "CODEI PRA CARALHO MAS NÃO COMPILOU!\n",
+            res.end(JSON.stringify({    error: "ERRO DE COMPILAÇÃO\n",
                                         stdout: null
                                     }));
         }
